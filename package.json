@@ -1,0 +1,35 @@
+{
+  "name": "bcs-optional",
+  "version": "0.0.1",
+  "description": "BCS - Canonical Binary Serialization implementation for JavaScript",
+  "license": "Apache-2.0",
+  "author": "Jeff Woo <jeff@kernellabs.co>",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "npm run build:types && tsup ./src/index.ts --format esm,cjs --sourcemap",
+    "build:types": "tsc --build",
+    "prepublishOnly": "npm build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@mysten/bcs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.1",
+    "tsup": "^6.2.2",
+    "typescript": "^4.8.3",
+    "vitest": "^0.22.1"
+  }
+}
